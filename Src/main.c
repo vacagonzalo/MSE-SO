@@ -19,8 +19,12 @@ int main(void)
 	for(;;)
 	{
 		leds_write(LED1, LED_ON);
+		leds_write(LED2, LED_ON);
+		leds_write(LED3, LED_ON);
 		never_use_this_delay_for_test_only();
 		leds_write(LED1, LED_OFF);
+		leds_write(LED2, LED_OFF);
+		leds_write(LED3, LED_OFF);
 		never_use_this_delay_for_test_only();
 	}
 }
