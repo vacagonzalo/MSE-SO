@@ -66,7 +66,7 @@ myOS_report_t myOS_init_stack()
 	uint32_t created_copy = __myOS__task_created__;
 	for(uint32_t index = 0; index < (__myOS__task_created__ + 1); ++index)
 	{
-		if(TASKS_NUMB >= __myOS__task_created__)
+		if(TASKS_NUMB <= __myOS__task_created__)
 		{
 				return myOS_FAILED;
 		}
@@ -104,7 +104,6 @@ void SysTick_Handler()
 	schedule();
 }
 
-// static uint32_t __myOS__stack_pointer__[TASKS_NUMB];
 int32_t getNextContext(int32_t current_context)
 {
 	uint32_t returned_stack;
