@@ -15,52 +15,45 @@ void init_platform()
 
 void task1()
 {
-	leds_write(LED1, LED_ON);
-	never_use_this_delay_for_test_only();
-	leds_write(LED1, LED_OFF);
-	never_use_this_delay_for_test_only();
+	while(1)
+	{
+		leds_write(LED1, LED_ON);
+		never_use_this_delay_for_test_only();
+		leds_write(LED1, LED_OFF);
+		never_use_this_delay_for_test_only();
+	}
 }
 
 void task2()
 {
-	leds_write(LED2, LED_ON);
-	never_use_this_delay_for_test_only();
-	leds_write(LED2, LED_OFF);
-	never_use_this_delay_for_test_only();
+	while(1)
+	{
+		leds_write(LED2, LED_ON);
+		never_use_this_delay_for_test_only();
+		leds_write(LED2, LED_OFF);
+		never_use_this_delay_for_test_only();
+	}
 }
 
 void task3()
 {
-	leds_write(LED3, LED_ON);
-	never_use_this_delay_for_test_only();
-	leds_write(LED3, LED_OFF);
-	never_use_this_delay_for_test_only();
+	while(1)
+	{
+		leds_write(LED3, LED_ON);
+		never_use_this_delay_for_test_only();
+		leds_write(LED3, LED_OFF);
+		never_use_this_delay_for_test_only();
+	}
 }
 
 int main(void)
 {
 	init_platform();
 
-	myOS_create_task(task1,
-		             NO_ERROR_HANDLER,
-					 NO_ARGUMENTS);
+	myOS_create_task(task1);
+	myOS_create_task(task2);
+	myOS_create_task(task3);
+	myOS_init_scheduler();
 
-	myOS_create_task(task2,
-		             NO_ERROR_HANDLER,
-					 NO_ARGUMENTS);
-
-	myOS_create_task(task3,
-		             NO_ERROR_HANDLER,
-					 NO_ARGUMENTS);
-	for(;;)
-	{
-		leds_write(LED1, LED_ON);
-		leds_write(LED2, LED_ON);
-		leds_write(LED3, LED_ON);
-		never_use_this_delay_for_test_only();
-		leds_write(LED1, LED_OFF);
-		leds_write(LED2, LED_OFF);
-		leds_write(LED3, LED_OFF);
-		never_use_this_delay_for_test_only();
-	}
+	for(;;) { }
 }

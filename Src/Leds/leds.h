@@ -5,8 +5,7 @@ typedef enum
 {
 	LED1,
 	LED2,
-	LED3,
-	LED4
+	LED3
 } leds_name_t;
 
 typedef enum
